@@ -18,6 +18,12 @@ class PizzaFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => fake()->randomElement(['Margherita', 
+            'Pepperoni', 'BBQ Chicken', 'Veggie Supreme',
+            'Hawaiian']),
+            'description' => fake()->sentence(),
+            'price' => fake()->randomFloat(2, 8, 20),
+            'image' => null,
             //
         ];
     }
