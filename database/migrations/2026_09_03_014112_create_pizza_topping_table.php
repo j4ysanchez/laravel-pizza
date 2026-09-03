@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('pizza_topping', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_name');
-            $table->string('customer_email');
-            $table->string('status')->default('pending'); // pending, baking, delivered
-            $table->decimal('total', 8, 2)->default(0);
+            $table->foreignId('pizza_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('topping_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('pizza_topping');
     }
 };

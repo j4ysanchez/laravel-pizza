@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('pizzas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->decimal('price',6,2);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
