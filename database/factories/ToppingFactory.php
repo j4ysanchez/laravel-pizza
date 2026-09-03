@@ -18,7 +18,12 @@ class ToppingFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->unique()->randomElement([
+                'Pepperoni', 'Mushrooms', 'Onions', 'Sausage',
+                'Bacon', 'Extra Cheese', 'Black Olives', 'Green Peppers',
+                'Pineapple', 'Spinach',
+            ]),
+            'price' => fake()->randomFloat(2, 0.5, 3),
         ];
     }
 }
